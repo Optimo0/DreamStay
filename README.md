@@ -1,4 +1,4 @@
-# Resort Booking Website
+# DreamStay Website
 
 ## Overview
 
@@ -23,10 +23,3 @@ Welcome to the Resort Booking Website! This web application allows users to brow
 - [.NET 6 SDK](https://dotnet.microsoft.com/download/dotnet/6.0)
 - [Visual Studio 2022](https://visualstudio.microsoft.com/vs/)
 - [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
-
-### Installation
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/your-username/resort-booking-website.git
-   cd resort-booking-website
