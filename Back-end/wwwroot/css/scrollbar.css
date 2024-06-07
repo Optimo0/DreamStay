@@ -1,0 +1,39 @@
+﻿:root {
+    --scrollbarBackground: #333;
+    --scrollbarForeground: #edf0f1;
+    --scrollbarOnHover: #555;
+}
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: var(--scrollbarBackground);
+    box-shadow: inset 0 0 5px grey;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    height: 20vh;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    background: var(--scrollbarForeground);
+    border: 3px solid var(--scrollbarBackground);
+}
+
+
+    /* Handle on hover */
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--scrollbarOnHover);
+        border: 2px solid var(--scrollbarForeground)
+    }

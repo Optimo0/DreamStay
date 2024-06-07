@@ -1,0 +1,75 @@
+﻿
+.createForm {
+    width: 40%;
+    height: 80vh;
+    border-style: outset;
+    border-radius: 30px;
+}
+
+    .createForm .form-group {
+        margin-top: 5%;
+        width: 60%;
+        height: 7vh;
+    }
+
+    .createForm label {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 2%;
+        color: #fff;
+    }
+
+    .createForm input {
+        font-size: 1.2rem;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        margin-top: 1%;
+    }
+
+    .createForm select {
+        margin-top: 2%;
+        margin-bottom: 2%
+    }
+
+
+.checks {
+    margin-top: 8%;
+}
+
+    .checks .form-group {
+        margin-top: 0;
+    }
+
+#submitCreate {
+    width: 40%;
+    height: 5vh;
+    border-radius: 40px;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-style: outset;
+    background-color: aliceblue;
+    transition: transform .5s, visibility .25s ease-in;
+}
+[title='forCity']{
+    margin-top: 10%;
+}
+
+[title='forCountry'] {
+    margin-top: 13%;
+}
+#submitCreate:hover {
+    transform: scale(1.02);
+}
+
+#createHotel {
+    height: 70vh;
+}
+
+#createCity {
+    height: 40vh;
+}
+
+#createCountry {
+    height: 40vh;
+}

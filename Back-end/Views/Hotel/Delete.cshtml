@@ -1,0 +1,67 @@
+﻿@model Backend.Models.ViewModels.HotelViewModel
+
+@{
+    string YesNo(bool active)
+    {
+        return active ? "Yes" : "No";
+    }
+
+    string[] files = Directory.GetFiles("wwwroot/images/photos");
+    int count = System.IO.Directory.EnumerateFiles("wwwroot/images/photos").Count();
+    var random = new Random();
+    var photoID = random.Next(1, count);
+    var path = files[photoID][7..];
+
+}
+
+@if (Model.Hotel != null)
+{
+    <div class="details">
+        <img src=@path />
+        <div class="infoDetails">
+            <div class="textInfo">
+
+                <p>
+                    Name: &nbsp;&nbsp; @Model.Hotel.Name
+                </p>
+                <p>
+                    City: &nbsp;&nbsp;
+                    @if (Model.City != null)
+                    {
+                        @Model.City.Name
+                    }
+                </p>
+
+                <p id="stars">
+
+                    @for (int i = 0; i < Model.Hotel.Rate; i++)
+                    {
+                        <span class="star">&#9733;</span>
+                    }
+                    @for (int i = Model.Hotel.Rate; i < 5; i++)
+                    {
+                        <span class="star">&#9734;</span>
+                    }
+
+                </p>
+                <p>
+                    Wi-Fi: &nbsp;&nbsp;  @YesNo(Model.Hotel.WiFi)
+                </p>
+                <p>
+                    Pool: &nbsp;&nbsp;  @Model.Hotel.Pool
+                </p>
+            </div>
+            <form asp-action="Delete" id="deleteForm">
+                <input class="btn btn-danger" type="submit" value="Delete" />
+                <a class="btn btn-light" asp-action="Index" asp-route-page=1>Back to List</a>
+            </form>
+        </div>
+
+    </div>
+}
+
+
+
+
+
+

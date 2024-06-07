@@ -1,0 +1,55 @@
+﻿@model Backend.Models.ViewModels.OfferViewModel
+
+@{
+    string[] files = Directory.GetFiles("wwwroot/images/photos");
+    int count = files.Count();
+    var random = new Random();
+    var photoID = random.Next(1, count);
+    var path = files[photoID][7..];
+}
+
+@if (Model.Offer != null)
+{
+    <a asp-action="Details" asp-route-id=@Model.Offer.OfferId>
+        <div class="offer">
+            <img src=@path>
+
+            <div class="info">
+                <p>
+                    @if (Model.Country != null)
+                    {
+                        @Model.Country.Name
+                    }
+                </p>
+                <p>
+                    @if (Model.Hotel != null)
+                    {
+                        @Model.Hotel.Name
+                    }
+                </p>
+                <p>
+                    @Model.Offer.Price
+                    $
+                </p>
+                <p>
+                    @Model.Offer.DateFrom.ToString("dd.MM.yyy")
+                    -
+                    @Model.Offer.DateTo.ToString("dd.MM.yyy")
+                </p>
+                <div class="edit-delete">
+                @if (User.Identity != null && User.Identity.IsAuthenticated)
+                {
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Edit" asp-route-id=@Model.Offer.OfferId class="edit btn btn-primary">Edit</a>
+                        <a asp-action="Delete" asp-route-id=@Model.Offer.OfferId class="edit btn btn-danger">Delete</a>
+                    }
+                    <a asp-action="Book" asp-controller="Booking" asp-route-offerId=@Model.Offer.OfferId class="edit btn btn-success">Book It</a>
+                }
+            </div>
+            </div>  
+        </div>
+    </a>
+}
+
+

@@ -1,0 +1,10 @@
+﻿#stars{
+    width: 38%;
+    float:left;
+    margin-bottom: 4%;
+}
+
+.star {
+    font-size: 2vw;
+    color: orange;
+}

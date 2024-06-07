@@ -1,0 +1,75 @@
+﻿@model Backend.Models.ViewModels.OfferViewModel
+
+@{
+    string YesNo(bool active)
+    {
+        return active ? "Yes" : "No";
+    }
+
+    string[] files = Directory.GetFiles("wwwroot/images/photos");
+    int count = System.IO.Directory.EnumerateFiles("wwwroot/images/photos").Count();
+    var random = new Random();
+    var photoID = random.Next(1, count);
+    var path = files[photoID][7..];
+
+}
+
+@if (Model.Offer != null)
+{
+
+    <div class="details">
+        <img src=@path />
+        <div class="infoDetails">
+            <div class="textInfo">
+
+                <p>
+                    Country: &nbsp;&nbsp;
+                    @if (Model.Country != null)
+                    {
+                        @Model.Country.Name
+                    }
+
+                </p>
+                <p>
+                    City: &nbsp;&nbsp;
+                    @if (Model.City != null)
+                    {
+                        @Model.City.Name
+                    }
+
+                </p>
+                <p>
+                    Hotel: &nbsp;&nbsp;
+                    @if (Model.Hotel != null)
+                    {
+                        @Model.Hotel.Name
+                    }
+                </p>
+                <p>
+                    Price: &nbsp;&nbsp;  @Model.Offer.Price
+                    $
+                </p>
+                <p>
+                    Full-board: &nbsp;&nbsp;  @YesNo(Model.Offer.FullBoard)
+                </p>
+                <p>
+                    From: &nbsp;&nbsp;  @Model.Offer.DateFrom.ToString("dd.MM.yyy")
+                </p>
+                <p>
+                    To: &nbsp;&nbsp;  @Model.Offer.DateTo.ToString("dd.MM.yyy")
+                </p>
+            </div>
+            <form asp-action="Delete" asp-route-id=@Model.Offer.OfferId id="deleteForm">
+                <input class="btn btn-danger" type="submit" value="Delete" />
+                <a class="btn btn-light" asp-action="Index" asp-route-page=1>Back to List</a>
+            </form>
+
+        </div>
+    </div>
+}
+
+
+
+
+
+

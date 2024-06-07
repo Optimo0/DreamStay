@@ -1,0 +1,65 @@
+﻿@model Backend.Models.ViewModels.CreateOfferViewModel
+
+
+<h1>Edit Offer</h1>
+<hr />
+
+<div class="createForm">
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group" style="display:none">
+            <label asp-for="OfferId" class="control-label">ID</label>
+            <input asp-for="OfferId" class="form-control" value=@ViewBag.ID />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Hotel" class="control-label">Hotel</label>
+            <select asp-for="Hotel" class="form-control" asp-items=@ViewBag.Hotels></select>
+        </div>
+
+        <div class="form-group" id="s">
+            <label asp-for="Price" class="control-label">Price</label>
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DateFrom" class="control-label">Date From</label>
+            <input asp-for="DateFrom" class="form-control" />
+            <span asp-validation-for="DateFrom" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DateTo" class="control-label">Date To</label>
+            <input asp-for="DateTo" class="form-control" />
+            <span asp-validation-for="DateTo" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DepartureCity" class="control-label">Departure City</label>
+            <select asp-for="DepartureCity" class="form-control" asp-items=@ViewBag.Cities></select>
+
+        </div>
+
+        <div class="checks">
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="FullBoard" /> Full Board
+                </label>
+            </div>
+        </div>
+        <div>
+            <button id="submitCreate" type="submit">Save</button>
+        </div>
+
+    </form>
+</div>
+
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}
+

@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Backend.Models.ViewModels.OfferViewModel>
+
+
+<div id="landing-page">
+    <img src="/images/photos/test1.jpg" alt="Hello">
+</div>
+
+
+<div class="query" id="query-filters">
+
+    <div class="filter">
+        <p>
+            Country
+        </p>
+
+        <select id="selectCountry" asp-items=@ViewBag.Countries>
+            <option>All</option>
+        </select>
+    </div>
+
+    <div class="filter">
+        <p>
+            Price
+        </p>
+        <select id="priceOrder" asp-items=@ViewBag.Orders>
+            <option></option>
+        </select>
+    </div>
+
+    <div class="filter">
+        <p>
+            From
+        </p>
+
+        <select id="selectFrom" asp-items=@ViewBag.CitiesFrom>
+            <option>All</option>
+        </select>
+    </div>
+
+    <div class="filter">
+        <p>
+            To
+        </p>
+        <select id="selectTo" asp-items=@ViewBag.CitiesTo>
+            <option>All</option>
+        </select>
+    </div>
+
+    <input class="submit" type="submit" onclick="submitFormOffer(0)" value="Filter" />
+</div>
+
+
+@foreach (var item in Model)
+{
+    <partial name="Offer" model=item />
+}
+
+@try
+{
+    Model.First();
+
+    <div class="buttons">
+        @if (ViewBag.DisabledLeft)
+        {
+            <a id="prevPage" class="disabled"> &lt; </a>
+        }
+        else
+        {
+            <a id="prevPage" class="active" onclick="submitFormOffer(-1)"> &lt; </a>
+        }
+        @if (ViewBag.DisabledRight)
+        {
+            <a id="nextPage" class="disabled"> > </a>
+        }
+        else
+        {
+            <a id="nextPage" class="active" onclick="submitFormOffer(1)"> > </a>
+        }
+    </div>
+
+
+}
+catch { }
+

@@ -1,0 +1,12 @@
+﻿@model Backend.Models.ViewModels.BookingViewModel
+
+<div class="book">
+    <h1>Booking Confirmed</h1>
+    <p>Hotel: @Model.Offer.Hotel.Name</p>
+    <p>Price per person: @Model.Offer.Price $</p>
+    <p>Dates: @Model.Offer.DateFrom.ToString("dd.MM.yyy") - @Model.Offer.DateTo.ToString("dd.MM.yyy")</p>
+    <h2>Booking Information</h2>
+    <p>Number of People: @Model.NumberOfPeople</p>
+    <p>Total Price: @Model.TotalPrice.ToString("0.##") $</p>
+    <p>Thank you for your booking!</p>
+</div>

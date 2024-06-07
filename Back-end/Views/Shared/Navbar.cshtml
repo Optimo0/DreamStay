@@ -1,0 +1,53 @@
+﻿<header>
+    <nav class="menu" id="bigMenu">
+        <a class="logo" asp-area="" asp-controller="Home" asp-action="Index">
+            DREAMSTAY
+        </a>
+
+        <!-- Display login/register options if the user is not authenticated -->
+        @if (User.Identity != null && !User.Identity.IsAuthenticated)
+        {
+            <div class="dropdown">
+                <div class="dropbtn">Login</div>
+                <div class="dropdown-content">
+                    <a class="dropbtn" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                    <a class="dropbtn" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                </div>
+            </div>
+        }
+        <!-- Display logout option if the user is authenticated -->
+        @if (User.Identity != null && User.Identity.IsAuthenticated)
+        {
+            <div class="dropdown">
+                <a class="dropbtn" asp-area="Identity" asp-page="/Account/Logout" method="post">Logout</a>
+            </div>
+        }
+
+        <!-- Display management options if the user is authenticated -->
+        @if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+        {
+
+            <div class="dropdown">
+                <div class="dropbtn">Manage</div>
+                <div class="dropdown-content">
+                    <a class="dropbtn" asp-controller="Hotel" asp-action="Index" asp-route-page=1>Hotels</a>
+                    <a class="dropbtn" asp-controller="City" asp-action="Index" asp-route-page=1>Cities</a>
+                    <a class="dropbtn" asp-controller="Country" asp-action="Index" asp-route-page=1>Countries</a>
+                </div>
+            </div>
+        }
+
+        <!-- Offers section is always visible, with additional options if the user is authenticated -->
+        <div class="dropdown">
+            <a class="dropbtn" asp-area="" asp-controller="Offer" asp-action="Index" asp-route-page=1>Offers</a>
+            @if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+            {
+                <div class="dropdown-content">
+                    <a class="dropbtn" asp-controller="Offer" asp-action="Index" asp-route-page=1>Search</a>
+                    <a class="dropbtn" asp-controller="Offer" asp-action="Create">Create</a>
+                    <a class="dropbtn" asp-controller="Hotel" asp-action="Index" asp-route-page=1>Hotels</a>
+                </div>
+            }
+        </div>
+    </nav>
+</header>

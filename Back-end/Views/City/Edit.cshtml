@@ -1,0 +1,33 @@
+﻿@model Backend.Models.ViewModels.CreateCityViewModel
+
+
+<h1>Edit City</h1>
+
+<hr />
+<div class="createForm" id="createCity">
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group" style="display:none">
+            <label asp-for="CityId" class="control-label">ID</label>
+            <input asp-for="CityId" class="form-control" value=@ViewBag.ID />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CityName" class="control-label"></label>
+            <input asp-for="CityName" class="form-control" />
+            <span asp-validation-for="CityName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CountryName" class="control-label">Country</label>
+            <select asp-for="CountryName" class="form-control" asp-items="ViewBag.Countries"></select>
+            <span asp-validation-for="CountryName" class="text-danger"></span>
+        </div>
+
+    <div>
+        <button id="submitCreate" title="forCity" type="submit">Save</button>
+    </div>
+    </form>
+</div>
+

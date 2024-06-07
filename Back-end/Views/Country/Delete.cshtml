@@ -1,0 +1,12 @@
+﻿@model Backend.Models.DbModels.Country
+
+
+<div class="deleteCity">
+    <h3>Are you sure you want to delete @Model.Name </h3>
+
+    <form asp-action="Delete" id="deleteForm">
+        <input class="btn btn-danger" type="submit" value="Delete" />
+        <a class="btn btn-light" asp-action="Index">Back to List</a>
+    </form>
+
+</div>

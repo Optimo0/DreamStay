@@ -1,0 +1,27 @@
+﻿@model Backend.Models.DbModels.Country
+
+<h1>Edit Country</h1>
+
+<hr />
+<div class="createForm" id="createCountry">
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group" style="display:none">
+            <label asp-for="CountryId" class="control-label">ID</label>
+            <input asp-for="CountryId" class="form-control" value=@ViewBag.ID />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div>
+            <button id="submitCreate" title="forCountry" type="submit">Save</button>
+        </div>
+    </form>
+</div>
+
+

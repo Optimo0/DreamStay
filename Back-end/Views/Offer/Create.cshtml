@@ -1,0 +1,66 @@
+﻿@model Backend.Models.ViewModels.CreateOfferViewModel
+
+@{
+    var today = DateTime.Now.Date.ToString("yyyy-MM-dd");
+    var oneWeek = DateTime.Now.Date.AddDays(7).ToString("yyyy-MM-dd");
+
+}
+
+<h1 class="mt-5">Create Offer</h1>
+<hr />
+
+<div class="createForm">
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="Hotel" class="control-label">Hotel</label>
+            <select asp-for="Hotel" class="form-control" asp-items=@ViewBag.Hotels></select>
+        </div>
+
+        <div class="form-group" id="s">
+            <label asp-for="Price" class="control-label">Price</label>
+            <input asp-for="Price" class="form-control" value=2000 />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DateFrom" class="control-label">Date From</label>
+            <input asp-for="DateFrom" placeholder=@today value=@today class="form-control" />
+            <span asp-validation-for="DateFrom" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DateTo" class="control-label">Date To</label>
+            <input asp-for="DateTo" placeholder=@oneWeek value=@oneWeek class="form-control" />
+            <span asp-validation-for="DateTo" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DepartureCity" class="control-label">Departure City</label>
+            <select asp-for="DepartureCity" class="form-control" asp-items=@ViewBag.Cities></select>
+        </div>
+
+        <div class="checks">
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="FullBoard" /> Full Board
+                </label>
+            </div>
+        </div>
+        <div>
+            <button id="submitCreate" type="submit">Create</button>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}

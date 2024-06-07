@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Backend.Models.ViewModels.HotelViewModel>
+
+<div id="filter-hotels" class="query">
+
+    <div class="filter">
+        <p>
+            Rate
+        </p>
+        <select id="rateOrder" asp-items=@ViewBag.Orders>
+            <option></option>
+        </select>
+    </div>
+
+    <div class="filter">
+        <p>
+            City
+        </p>
+        <select id="selectCity" asp-items=@ViewBag.Cities>
+            <option>All</option>
+        </select>
+    </div>
+
+    <input class="submit btn btn-light" type="submit" onclick="submitFormHotel(0)" value="Filter" />
+    <a class="submit btn btn-light" asp-action="Create">Create</a>
+
+</div>
+
+
+
+@foreach (var item in Model)
+{
+    <partial name="Hotel" model=item />
+}
+
+@try
+{
+    Model.First();
+
+    <div class="buttons">
+        @if (ViewBag.DisabledLeft)
+        {
+            <a id="prevPage" class="disabled"> &lt; </a>
+        }
+        else
+        {
+            <a id="prevPage" class="active" onclick="submitFormHotel(-1)"> &lt; </a>
+        }
+        @if (ViewBag.DisabledRight)
+        {
+            <a id="nextPage" class="disabled"> > </a>
+        }
+        else
+        {
+            <a id="nextPage" class="active" onclick="submitFormHotel(1)"> > </a>
+        }
+    </div>
+
+
+}
+catch { }

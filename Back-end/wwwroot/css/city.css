@@ -1,0 +1,50 @@
+﻿:root {
+    --imgshadows: #596A7A;
+    --imageClassColor: #484C58;
+    --textColor: #fff;
+    --hoverLinkColor: #ffffff;
+    --background: #333;
+    --bodyBackground: linear-gradient(to right top, #484c58, #434550, #3e3e47, #39373f, #333037);
+}
+
+.table {
+    width: 75vw;
+    color: #fff;
+}
+
+    .table th {
+        font-weight: bold;
+        font-size: 2vw;
+    }
+
+    .table td {
+        font-weight: bold;
+        font-size: 1.5vw;
+        border-style: outset;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .table #deleteForm {
+        margin-bottom: 2%;
+    }
+
+.deleteCity {
+    margin-top: 8vh;
+    width: 70%;
+    height: 90vh;
+}
+
+
+
+    .deleteCity #deleteForm {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 70%;
+        height: 25%;
+    }
+
+    .deleteCity #deleteForm a{
+        margin-left: 33%;
+    }

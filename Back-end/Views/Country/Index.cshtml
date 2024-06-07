@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Backend.Models.DbModels.Country>
+
+<div id="filter-hotels" class="query">
+
+    <div class="filter">
+        <p>
+            Sort
+        </p>
+        <select id="sortOrder" asp-items=@ViewBag.Orders>
+            <option></option>
+            }
+
+        </select>
+    </div>
+
+    <input class="submit btn btn-light" type="submit" onclick="submitFormCountry(0)" value="Filter" />
+    <a class="submit btn btn-light" asp-action="Create">Create</a>
+
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    <div id="deleteForm">
+                        <a asp-action="Edit" asp-route-id="@item.CountryId" class="btn btn-primary">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.CountryId" class="btn btn-danger">Delete</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@try
+{
+    Model.First();
+
+    <div class="buttons">
+        @if (ViewBag.DisabledLeft)
+        {
+            <a id="prevPage" class="disabled"> &lt; </a>
+        }
+        else
+        {
+            <a id="prevPage" class="active" onclick="submitFormCountry(-1)"> &lt; </a>
+        }
+        @if (ViewBag.DisabledRight)
+        {
+            <a id="nextPage" class="disabled"> > </a>
+        }
+        else
+        {
+            <a id="nextPage" class="active" onclick="submitFormCountry(1)"> > </a>
+        }
+    </div>
+
+
+}
+catch { }

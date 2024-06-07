@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DreamStay</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="~/images/icons/logo.png">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    @{
+        // css files
+        string[] files = Directory.GetFiles("wwwroot/css");
+        foreach (string file in files)
+        {
+            var path = $"~{file[7..]}";
+            <link rel="stylesheet" href=@path asp-append-version="true" />
+        }
+    }
+
+</head>
+<body>
+
+    <partial name="Navbar" />
+    @RenderBody()
+    <partial name="Footer" />
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @{
+        // js files
+        string[] filesJS = Directory.GetFiles("wwwroot/js");
+        foreach (string file in filesJS)
+        {
+            var path = $"~{file[7..]}";
+            <script src=@path asp-append-version="true"></script>
+        }
+    }
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿@model Backend.Models.ViewModels.CreateHotelViewModel
+
+<h1>Edit Hotel</h1>
+
+<hr />
+<div class="createForm" id="createHotel">
+
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+         <div class="form-group" style="display:none">
+            <label asp-for="HotelId" class="control-label">ID</label>
+            <input asp-for="HotelId" class="form-control" value=@ViewBag.ID/>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Rate" class="control-label"></label>
+            <input asp-for="Rate" TextMode="Number" class="form-control" min="1" max="5" step="1" />
+        </div>
+        <div class="form-group">
+            <label asp-for="City" class="control-label"></label>
+            <select asp-for="City" class="form-control" asp-items="ViewBag.Cities"></select>
+        </div>
+
+        <div class="checks">
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Pool" /> Pool
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="WiFi" /> WiFi
+                </label>
+            </div>
+        </div>
+
+         <div>
+            <button id="submitCreate" type="submit">Save</button>
+        </div>
+
+    </form>
+</div>
+

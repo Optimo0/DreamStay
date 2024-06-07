@@ -1,0 +1,35 @@
+﻿:root {
+    --imgshadows: #596A7A;
+    --imageClassColor: #484C58;
+    --textColor: #C9C5CE;
+    --hoverLinkColor: #ffffff;
+}
+
+#deleteForm {
+    width: 100%;
+    height: 15%;
+    display: flex;
+}
+
+    #deleteForm a, #deleteForm input {
+        width: 40%;
+        height: 50%;
+        font-family: 'Montserrat', sans-seri;
+        font-size: 1.5vw;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 4%;
+        margin-left: 6%;
+        border-radius: 50px;
+        border-style: outset;
+        transition: transform .5s, visibility .25s ease-in;
+    }
+
+
+        #deleteForm a:hover, #deleteForm input:hover {
+            transform: scale(0.95);
+            border: 2px solid black;
+            cursor: pointer;
+        }

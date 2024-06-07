@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamStay", "Back-end\DreamStay.csproj", "{310D0287-B902-4F4B-B448-3CCCF6720B4D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{310D0287-B902-4F4B-B448-3CCCF6720B4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{310D0287-B902-4F4B-B448-3CCCF6720B4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{310D0287-B902-4F4B-B448-3CCCF6720B4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{310D0287-B902-4F4B-B448-3CCCF6720B4D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A19F9600-2EE9-4800-BC72-ECBE5E7012B8}
+	EndGlobalSection
+EndGlobal

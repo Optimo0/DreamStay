@@ -1,0 +1,240 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+:root {
+    --imgshadows: #596A7A;
+    --imageClassColor: #484C58;
+    --textColor: #C9C5CE;
+    --hoverLinkColor: #ffffff;
+    --background: #333;
+    --bodyBackground: linear-gradient(to right top, #484c58, #434550, #3e3e47, #39373f, #333037);
+}
+
+* {
+    margin: auto;
+    text-align: center;
+}
+
+
+#landing-page {
+    width: 100%;
+    height: 92vh;
+    z-index: 2;
+    overflow: hidden;
+    margin-top: 8vh;
+}
+
+    #landing-page img {
+        width: 100%;
+        height: 100vh;
+    }
+
+.offer img {
+    width: 50%;
+    height: 400px;
+    float: left;
+    box-shadow: var(--imgshadows) 3px 1px 3px;
+    border-radius: 20px;
+    transform-origin: right bottom 10px;
+    transition: transform .5s, visibility .25s ease-in;
+}
+
+    .offer img:hover {
+        transform: scale(0.99);
+    }
+
+.offer {
+    margin-top: 4%;
+    padding: 2%;
+    width: 70%;
+    height: auto;
+    border-style: outset;
+    border-radius: 10px;
+    transition: transform .5s, visibility .25s ease-in;
+    background: #333;
+    color: var(--foreground);
+    overflow: hidden;
+}
+
+    .offer:hover {
+        transform: scale(1.02);
+        cursor: pointer;
+    }
+
+.info {
+    float: right;
+    width: 50%;
+    height: 90%;
+}
+
+    .info p {
+        width: 100%;
+        padding-top: 4%;
+        color: #fff;
+        font-family: 'Montserrat', sans-seri;
+        font-size: 1.5vw;
+        font-weight: bold;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        margin-left: 5%;
+    }
+
+
+.edit-delete {
+    height: 30%;
+    display: flex;
+    justify-content: space-around;
+}
+
+    .edit-delete a {
+        font-size: 1.5vw;
+    }
+
+.edit {
+    width: 30%;
+    height: 50%;
+    font-family: 'Montserrat', sans-seri;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+    border-radius: 50px;
+    border-style: outset;
+    /*background-color: var(--imageClassColor)*/;
+    transition: transform .5s, visibility .25s ease-in;
+}
+
+
+    .edit:hover {
+        transform: scale(0.95);
+        border: 2px solid black;
+        cursor: pointer;
+    }
+
+.book{
+    width: 50%;
+    padding-top: 10%;
+}
+
+    .book p, .book label {
+        height: 20%;
+        color: #fff;
+        font-family: 'Montserrat', sans-seri;
+        font-size: 1.5rem;
+        font-weight: bold;
+        align-items: center;
+    }
+
+.query {
+    margin-bottom: 4%;
+    margin-top: 2%;
+    width: 70vw;
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+    .query .filter {
+        margin-left: 2%;
+        width: 20%;
+        height: 100%;
+    }
+
+.filter p {
+    color: white;
+    width: 100%;
+    font-size: 1.5vw;
+}
+
+.filter select {
+    width: 100%;
+    height: 40%;
+}
+
+.submit {
+    width: 10%;
+    height: 60%;
+    font-family: 'Montserrat', sans-seri;
+    font-size: 1.5vw;
+    font-weight: bold;
+    margin-left: 3%;
+    margin-right: 2%;
+    border-radius: 50px;
+    border-style: outset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform .5s, visibility .25s ease-in;
+}
+
+
+    .submit:hover {
+        transform: scale(0.95);
+        border: 2px solid black;
+        cursor: pointer;
+    }
+
+
+#filter-hotels {
+    margin-top: 7%;
+}
+
+
+.buttons {
+    width: 20%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+    .buttons .active {
+        width: 30%;
+        height: 60%;
+        font-family: 'Montserrat', sans-seri;
+        font-size: 3rem;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 6%;
+        border-radius: 50px;
+        border-style: outset;
+        background-color: #fff;
+        transition: transform .5s, visibility .25s ease-in;
+    }
+
+        .buttons .active:hover {
+            transform: scale(0.95);
+            border: 2px solid black;
+            cursor: pointer;
+        }
+
+    .buttons .disabled {
+        width: 30%;
+        height: 60%;
+        font-family: 'Montserrat', sans-seri;
+        font-size: 3rem;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 6%;
+        border-radius: 50px;
+        border: none;
+        background-color: #fff;
+        transition: transform .5s, visibility .25s ease-in;
+    }
+
+        .buttons .disabled:hover {
+            cursor: default;
+        }
+
+@media screen and (max-width: 1200px) {
+    .offer img {
+        height: 5%;
+    }
+}
