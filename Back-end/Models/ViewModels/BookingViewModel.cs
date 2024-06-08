@@ -11,5 +11,6 @@ namespace Backend.Models.ViewModels
         public decimal TotalPrice { get; set; }
         public DateTime DateFrom { get; set; }
         public DateTime DateTo { get; set; }
+        public string UserEmail { get; set; }
     }
 }

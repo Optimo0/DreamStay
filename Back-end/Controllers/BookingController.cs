@@ -3,6 +3,7 @@ using Backend.Models.DbModels;
 using Backend.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace Backend.Controllers
 {
@@ -11,10 +12,12 @@ namespace Backend.Controllers
     public class BookingController : Controller
     {
         private readonly DatabaseContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public BookingController(DatabaseContext context)
+        public BookingController(DatabaseContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // Displays the booking form for a specific offer
@@ -43,7 +46,7 @@ namespace Backend.Controllers
 
         // Handles the submission of the booking form
         [HttpPost]
-        public IActionResult Book(BookingViewModel viewModel)
+        public async Task<IActionResult> Book(BookingViewModel viewModel)
         {
             var offer = _context.Offer
                                 .Include(o => o.Hotel)
@@ -68,6 +71,25 @@ namespace Backend.Controllers
 
             // Calculate the total price based on the number of days and number of people
             viewModel.TotalPrice = pricePerDay * numberOfDays * viewModel.NumberOfPeople;
+
+            // Get the logged-in user's email
+            var user = await _userManager.GetUserAsync(User);
+            var userEmail = user?.Email;
+            viewModel.UserEmail = userEmail;
+
+            // Save the booking information to the database
+            var booking = new Booking
+            {
+                OfferId = viewModel.Offer.OfferId,
+                UserEmail = viewModel.UserEmail,
+                NumberOfPeople = viewModel.NumberOfPeople,
+                TotalPrice = viewModel.TotalPrice,
+                DateFrom = viewModel.DateFrom,
+                DateTo = viewModel.DateTo
+            };
+
+            _context.Booking.Add(booking);
+            await _context.SaveChangesAsync();
 
             return View("Confirm", viewModel);
         }

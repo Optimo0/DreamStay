@@ -23,6 +23,7 @@ namespace Backend.Models.DbModels
         public DbSet<City>? City { get; set; }
         public DbSet<Hotel>? Hotel { get; set; }
         public DbSet<Offer>? Offer { get; set; }
+        public DbSet<Booking>? Booking { get; set; }
 
 
         // Method for configuring entity properties and relationships
