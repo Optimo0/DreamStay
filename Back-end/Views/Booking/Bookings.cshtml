@@ -1,0 +1,28 @@
+﻿@model List<Backend.Models.DbModels.Booking>
+
+@{
+    string[] files = Directory.GetFiles("wwwroot/images/photos");
+    int count = files.Count();
+    var random = new Random();
+    var photoID = random.Next(1, count);
+    var path = files[photoID][7..];
+}
+
+@foreach (var booking in Model)
+{
+    <div class="booking-card">
+        <img src=@path>
+        <div class="info">
+            <p>User Name: @booking.UserEmail</p>
+            <p>Number Of People: @booking.NumberOfPeople</p>
+            <p>Price: $@booking.TotalPrice</p>
+            <p>Date: @booking.DateFrom.ToShortDateString() to @booking.DateTo.ToShortDateString()</p>
+            <p>Booking Date: @booking.BookingDate</p>
+            <div class="cancel">
+                <form asp-action="Cancel" asp-route-bookingId="@booking.BookingId" method="post">
+                    <button type="submit" class="btn btn-danger">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+}

@@ -102,7 +102,6 @@
     margin-top: 2%;
     border-radius: 50px;
     border-style: outset;
-    /*background-color: var(--imageClassColor)*/;
     transition: transform .5s, visibility .25s ease-in;
 }
 

@@ -40,14 +40,18 @@
         <!-- Offers section is always visible, with additional options if the user is authenticated -->
         <div class="dropdown">
             <a class="dropbtn" asp-area="" asp-controller="Offer" asp-action="Index" asp-route-page=1>Offers</a>
-            @if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-            {
-                <div class="dropdown-content">
+            <div class="dropdown-content">
+                @if (User.Identity != null && User.Identity.IsAuthenticated)
+                {
+                    <a class="dropbtn" asp-area="" asp-controller="Booking" asp-action="Bookings">Bookings</a>
+                }
+                @if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                {
                     <a class="dropbtn" asp-controller="Offer" asp-action="Index" asp-route-page=1>Search</a>
                     <a class="dropbtn" asp-controller="Offer" asp-action="Create">Create</a>
                     <a class="dropbtn" asp-controller="Hotel" asp-action="Index" asp-route-page=1>Hotels</a>
-                </div>
-            }
+                }
+            </div>
         </div>
     </nav>
 </header>

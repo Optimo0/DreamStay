@@ -1,0 +1,70 @@
+﻿* {
+    margin: auto;
+    text-align: center;
+}
+
+.booking-card img {
+    width: 50%;
+    height: 400px;
+    float: left;
+    box-shadow: var(--imgshadows) 3px 1px 3px;
+    border-radius: 20px;
+    transform-origin: right bottom 10px;
+    transition: transform .5s, visibility .25s ease-in;
+}
+
+    .booking-card image:hover {
+        transform: scale(0.99);
+    }
+
+.booking-card {
+    margin-top: 6%;
+    padding: 2%;
+    width: 70%;
+    height: auto;
+    border-style: outset;
+    border-radius: 10px;
+    transition: transform .5s, visibility .25s ease-in;
+    background: #333;
+    color: var(--foreground);
+    overflow: hidden;
+}
+
+    .booking-card:hover {
+        transform: scale(1.02);
+        cursor: pointer;
+    }
+
+.info {
+    float: right;
+    width: 50%;
+    height: 90%;
+}
+
+    .info p {
+        width: 100%;
+        padding-top: 4%;
+        color: #fff;
+        font-family: 'Montserrat', sans-seri;
+        font-size: 1.5vw;
+        font-weight: bold;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        margin-left: 5%;
+    }
+
+.cancel {
+    height: 30%;
+    display: flex;
+    justify-content: space-around;
+}
+    .cancel a {
+        font-size: 1.5vw;
+    }
+
+@media screen and (max-width: 1200px) {
+    .booking-card img {
+        height: 5%;
+    }
+}

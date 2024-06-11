@@ -93,5 +93,38 @@ namespace Backend.Controllers
 
             return View("Confirm", viewModel);
         }
+
+        // Displays the bookings of the current user
+        [HttpGet]
+        public IActionResult Bookings()
+        {
+            // Get the logged-in user's email
+            var userEmail = _userManager.GetUserAsync(User).Result.Email;
+
+            // Retrieve bookings for the current user
+            var userBookings = _context.Booking
+                .Include(b => b.Offer)
+                .Where(b => b.UserEmail == userEmail)
+                .ToList();
+
+            return View(userBookings);
+        }
+
+        // Handles the cancellation of a booking
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Cancel(int bookingId)
+        {
+            var booking = await _context.Booking.FindAsync(bookingId);
+            if (booking == null)
+            {
+                return NotFound();
+            }
+
+            _context.Booking.Remove(booking);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index), "Home");
+        }
     }
 }

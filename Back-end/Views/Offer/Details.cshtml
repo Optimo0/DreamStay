@@ -60,7 +60,7 @@
                 {
                     <a asp-controller="Hotel" asp-action="Details" asp-route-id=@Model.Hotel.HotelId class="btn btn-success">Hotel</a>
                 }
-                @if (User.Identity != null && User.Identity.IsAuthenticated && Model.Offer != null)
+                @if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                 {
                     <a asp-controller="Offer" asp-action="Edit" asp-route-id=@Model.Offer.OfferId class="btn btn-primary">Edit</a>
                 }
@@ -68,13 +68,5 @@
 
             </div>
         </div>
-
-
     </div>
 }
-
-
-
-
-
-

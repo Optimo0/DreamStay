@@ -51,7 +51,7 @@
             </div>
 
             <div class="details-links">
-                @if (User.Identity != null && User.Identity.IsAuthenticated)
+                @if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                 {
                     <a asp-area="" asp-controller="Hotel" asp-action="Edit" asp-route-id=@Model.Hotel.HotelId class="btn btn-primary">Edit</a>
                 }
